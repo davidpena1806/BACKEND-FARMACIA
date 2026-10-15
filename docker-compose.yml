@@ -1,0 +1,16 @@
+# PostgreSQL para desarrollo. Uso: docker compose up -d
+services:
+  postgres:
+    image: postgres:16
+    container_name: farmacia-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: farmacia_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - farmacia_pgdata:/var/lib/postgresql/data
+
+volumes:
+  farmacia_pgdata:

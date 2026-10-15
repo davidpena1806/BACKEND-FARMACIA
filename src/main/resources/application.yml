@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: farmacia-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/farmacia_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update # crea/actualiza las tablas automáticamente
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  web:
+    locale: es
+    locale-resolver: fixed
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:farmacia-clave-secreta-super-larga-para-firmar-jwt-2026}
+    expiration-ms: 86400000 # 24 horas
+  cors:
+    allowed-origins: http://localhost:4200
